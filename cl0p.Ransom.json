@@ -1,8 +1,8 @@
 {
-        "name": "cl0p.Ransom",
+        "name": "Cl0p",
         "versions": {
-                "attack": "9",
-                "navigator": "4.3",
+                "attack": "10",
+                "navigator": "4.5.1",
                 "layer": "4.2"
         },
         "domain": "enterprise-attack",
@@ -184,6 +184,14 @@
                 },
                 {
                         "techniqueID": "T1204.002",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "1486",
                         "color": "#e60d0d",
                         "comment": "",
                         "enabled": true,
