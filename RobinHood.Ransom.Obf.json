@@ -1,0 +1,281 @@
+{
+        "name": "RobinHood.Ransom",
+        "versions": {
+                "attack": "10",
+                "navigator": "4.5.5",
+                "layer": "4.3"
+        },
+        "domain": "enterprise-attack",
+        "description": "",
+        "filters": {
+                "platforms": [
+                        "Linux",
+                        "macOS",
+                        "Windows",
+                        "Office 365",
+                        "Azure AD",
+                        "AWS",
+                        "GCP",
+                        "Azure",
+                        "SaaS",
+                        "PRE",
+                        "Network"
+                ]
+        },
+        "sorting": 0,
+        "layout": {
+                "layout": "flat",
+                "showID": false,
+                "showName": true
+        },
+        "hideDisabled": false,
+        "techniques": [
+                {
+                        "techniqueID": "This malware has been obfuscated by rTHREAT in order to be able to bypass detection systems such as anti-malware",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "EPP",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "IPS etc.\nThe ransomware begins its attack by exploiting a vulnerability in the Gigabyte-branded driver to compromise the victim's MS Windows system with the ability to disable the anti-malware solution so that it cannot be removed.\n\nThis flaw is based on a security issue found in a Gigabyte driver in 2018 that can continue to be exploited on computers that have it installed and may be the gateway for this ransomware attack. Although Gigabyte has already abandoned this type of driver",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "it is possible that some old computers still have it installed",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "which makes them vulnerable to this new attack.\n\nRobbinHood disconnects all network shares from the computer using the following command:\n\ncmd.exe /c net use * /DELETE /Y\n\nThis implies that each computer is addressed individually and that other computers are not encrypted through connected shares. This could indicate that the payload is sent to each individual machine through a domain controller or through PowerShell and PSExec.\n\nBefore continuing",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "the ransomware will now attempt to read a public RSA encryption key from C:\\Windows\\Temp\\pub.key. If this key is not present",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "it will display the following message and the ransomware will be closed.\n\nIt will then stop 181 Windows services associated with antivirus",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "database",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "mail server",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "and other software that might keep files open and prevent encryption. It does this by issuing the \"sc.exe stop\" command as shown below.\n \ncmd.exe /c sc.exe stop AVP /y\n\nDuring this preparation stage",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "you will delete Shadow Volume Copies",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "clear event logs",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "and disable Windows Automatic Repair by running the following commands:\n\nvssadmin.exe delete shadows /all /quiet\nWMIC shadowcopy delete\nwevtutil.exe cl Application\nwevtutil.exe cl Security\nwevtutil.exe cl System\nBcdedit.exe /set {default} recoveryenabled no\nBcdedit.exe /set {default} bootstatuspolicy ignoreallfailures\n\nNow that the computer is ready",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "it starts encrypting the victim's specific files.\n\nThe ransomware requires victims to pay a hefty price to get their data back",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "an amount that increases by $10",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "000 a day if the victim is late in paying.\n\nObfuscation: Mutation and Virtualization.\n\nMALICIOUS:\n\nSample was identified as malicious by a large number of Antivirus engines\nSample was identified as malicious by a trusted Antivirus engine\n\nSUSPICIOUS:\n\nQueries kernel debugger information\nQueries process information\nCreates guarded memory regions (anti-debugging trick to avoid memory dumping)\nReads the active computer name\nReads the cryptographic machine GUID\nSample was identified as malicious by at least one Antivirus engine\nReads configuration files\nContains ability to open a port and listen for incoming connection\nContains many references to file extensions (often found in ransomware)\nThe input sample dropped very many files\nMarks file for deletion\nOpens file with deletion access rights\nInstalls hooks/patches the running process\nReads information about supported languages\nTimestamp in PE header is very old or in the future\n\nINFO: \n\nContains ability to read software policies\nContains PDB pathways\nLoads the .NET runtime environment\nConnects to LPC ports\nDropped files\nTouches files in the Windows directory\nFound potential URL in binary/memory\nOpens the Kernel Security Device Driver (KsecDD) of Windows\nMatched Compiler/Packer signature\n\n\n\n\nhttps://www.hybrid-analysis.com/sample/d36e6282363c0f9c05b7b04412d10249323d8b0000f2c25f96c6f9de207eedf8/6205a4e2fd7ecc322b7c84d3\n\n2022-02-13\n2022-02-06\n\n\\\\RTHREAT\\Documentos\\Known\\Ransomware\\RobinHood.Ransom.rthreat\n\\\\RTHREAT\\Documentos\\Ofuscados\\Ransomware\\RobinHood.Ransom.Obf.rthreat\n\nT1027",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "T1027.002",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "T1204",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "T1204.002",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "T1070",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "T1070.004",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "T1056",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "T1056",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "T1056.004",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "T1057",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "T1082",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "T1012",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "T1571",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                },
+                {
+                        "techniqueID": "T1486\n\nExecution & Defense Evasion & Credential Access & Discovery & Collection & Command and Control",
+                        "color": "#e60d0d",
+                        "comment": "",
+                        "enabled": true,
+                        "metadata": [],
+                        "showSubtechniques": true
+                }
+        ],
+        "gradient": {
+                "colors": [
+                        "#ff6666",
+                        "#ffe766",
+                        "#8ec843"
+                ],
+                "minValue": 0,
+                "maxValue": 100
+        },
+        "legendItems": [],
+        "metadata": [],
+        "showTacticRowBackground": false,
+        "tacticRowBackground": "#dddddd",
+        "selectTechniquesAcrossTactics": true,
+        "selectSubtechniquesWithParent": false
+}
